@@ -1,0 +1,51 @@
+# MariaDB-specific config file.
+# Read by /etc/mysql/my.cnf
+
+[client]
+# Default is Latin1, if you need UTF-8 set this (also in server section)
+default-character-set = utf8
+
+[mysqld]
+#
+# * Character sets
+#
+# Default is Latin1, if you need UTF-8 set all this (also in client section)
+#
+character-set-server  = utf8
+collation-server      = utf8_general_ci
+character_set_server   = utf8
+collation_server       = utf8_general_ci
+
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+lower_case_table_names=1
+
+# mariadb 64m
+open_files_limit=200
+table_open_cache=512
+max_allowed_packet=2M
+max_heap_table_size=8M
+innodb_sort_buffer_size=512K
+myisam_sort_buffer_size=4M
+thread_cache_size=8
+query_cache_limit=128K
+ft_min_word_len=4
+transaction_isolation=REPEATABLE-READ
+innodb_open_files=100
+myisam_sort_buffer_size=4M
+#thread_concurrency=2
+
+key_buffer_size=1M
+query_cache_size=128K
+innodb_buffer_pool_size=16M
+innodb_log_buffer_size=1M
+
+max_connections=5
+read_buffer_size=128K
+read_rnd_buffer_size=128K
+sort_buffer_size=256K
+join_buffer_size=256K
+binlog_cache_size=16K
+thread_stack=256K
+tmp_table_size=8M
+bulk_insert_buffer_size=1M
+max_heap_table_size=8M
